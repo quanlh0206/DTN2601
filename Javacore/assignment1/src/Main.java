@@ -43,7 +43,7 @@ public class Main {
         acc1.email = "a@gmail.com";
         acc1.userName = "user1";
         acc1.fullName = "Nguyen Van A";
-        acc1.Department = dep1;
+        acc1.department = dep1;
         acc1.position = pos1;
         acc1.createDate = LocalDate.now();
 
@@ -52,7 +52,7 @@ public class Main {
         acc2.email = "b@gmail.com";
         acc2.userName = "user2";
         acc2.fullName = "Nguyen Van B";
-        acc2.Department = dep2;
+        acc2.department = dep2;
         acc2.position = pos2;
         acc2.createDate = LocalDate.now();
 
@@ -61,7 +61,7 @@ public class Main {
         acc3.email = "c@gmail.com";
         acc3.userName = "user3";
         acc3.fullName = "Nguyen Van C";
-        acc3.Department = dep3;
+        acc3.department = dep3;
         acc3.position = pos3;
         acc3.createDate = LocalDate.now();
 
@@ -112,17 +112,17 @@ public class Main {
         // CategoryQuestion
         CategoryQuestion cat1 = new CategoryQuestion();
         cat1.CategoryId = 1;
-        cat1.CategoryName = "Java";
+        cat1.categoryName = "Java";
 
         CategoryQuestion cat2 = new CategoryQuestion();
         cat2.CategoryId = 2;
-        cat2.CategoryName = "PHP";
+        cat2.categoryName = "PHP";
 
         CategoryQuestion cat3 = new CategoryQuestion();
         cat3.CategoryId = 3;
-        cat3.CategoryName = "SQL";
+        cat3.categoryName = "SQL";
 
-        System.out.println("Category: " + cat1.CategoryName);
+        System.out.println("Category: " + cat1.categoryName);
 
 
         // TypeQuestion
@@ -237,5 +237,5 @@ public class Main {
 
         System.out.println("ExamQuestion: " + eq1.question.content);
 
-        }
     }
+}
