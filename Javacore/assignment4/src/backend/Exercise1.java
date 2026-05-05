@@ -2,6 +2,7 @@ package backend;
 
 import entity.Account;
 import entity.Department;
+import entity.Group;
 import entity.Position;
 import enums.PositionName;
 
@@ -64,4 +65,49 @@ public class Exercise1 {
         System.out.println("CreateDate: " + account4.getCreateDate());
     }
 
+    public void question3() {
+        Account creator = new Account();
+        creator.setUserName("Quân");
+
+        Group group1 = new Group();
+
+        Account acc1 = new Account();
+        acc1.setUserName("user1");
+        Account acc2 = new Account();
+        acc2.setUserName("user2");
+        Account[] accounts = {acc1, acc2};
+        Group group2 = new Group(
+                "Group Java",
+                creator,
+                accounts,
+                LocalDate.now()
+        );
+
+        String[] usernames = {"u1", "u2", "u3"};
+        Group group3 = new Group(
+                "Group Dev",
+                creator,
+                usernames,
+                LocalDate.now()
+        );
+
+        System.out.println("Group 1:");
+        System.out.println("Name: " + group1.getGroupName());
+
+        System.out.println("\nGroup 2:");
+        System.out.println("Name: " + group2.getGroupName());
+        System.out.println("Creator: " + group2.getCreator().getUserName());
+        System.out.println("Accounts:");
+        for (Account acc : group2.getAccounts()) {
+            System.out.println("- " + acc.getUserName());
+        }
+
+        System.out.println("\nGroup 3:");
+        System.out.println("Name: " + group3.getGroupName());
+        System.out.println("Creator: " + group3.getCreator().getUserName());
+        System.out.println("Accounts:");
+        for (Account acc : group3.getAccounts()) {
+            System.out.println("- " + acc.getUserName());
+        }
+    }
 }
