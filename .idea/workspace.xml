@@ -2,9 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0fe6c3c-4564-4b67-b569-4311376148e1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Javacore/assignment1/assignment1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javacore/assignment2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Javacore/assignment2/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Javacore/assignment2/assignment2.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javacore/crud/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javacore/crud/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javacore/crud/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javacore/crud/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javacore/crud/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javacore/crud/crud.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Javacore/crud/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/assignment4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Javacore/assignment4/assignment4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/backend/Exercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Javacore/assignment4/src/backend/Exercise1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/backend/Exercise4.java" beforeDir="false" afterPath="$PROJECT_DIR$/Javacore/assignment4/src/backend/Exercise4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Answer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/CategoryQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Department.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Exam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/ExamQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Group.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/GroupAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Question.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/Javacore/assignment4/src/entity/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/entity/TypeQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/frontend/Program1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Javacore/assignment4/src/frontend/Program1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Javacore/assignment4/src/frontend/Program4.java" beforeDir="false" afterPath="$PROJECT_DIR$/Javacore/assignment4/src/frontend/Program4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,27 +35,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8,
-  "fromUser": false
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3DDV8voZTcU2mTLPTcL1I8SfK7A" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/lehongquan/Desktop/DTN2601"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/lehongquan/Desktop/DTN2601&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b0fe6c3c-4564-4b67-b569-4311376148e1" name="Changes" comment="" />

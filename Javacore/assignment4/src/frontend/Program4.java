@@ -4,7 +4,7 @@ import backend.Exercise4;
 
 public class Program4 {
     public static void main(String[] args) {
-        Exercise4 exercise4 =new Exercise4();
-        exercise4.question1();
+//        Exercise4 exercise4 =new Exercise4();
+//        exercise4.question1();
     }
 }

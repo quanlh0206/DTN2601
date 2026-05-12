@@ -7,6 +7,6 @@ public class Program1 {
         Exercise1 exercise1 = new Exercise1();
 //        exercise1.question1();
 //        exercise1.question2();
-        exercise1.question3();
+//        exercise1.question3();
     }
 }
