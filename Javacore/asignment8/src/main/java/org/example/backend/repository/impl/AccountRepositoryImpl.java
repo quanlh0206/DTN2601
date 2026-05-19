@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class AccountRepositoryImpl implements IAccountRepository {
     @Override
@@ -122,5 +123,68 @@ public class AccountRepositoryImpl implements IAccountRepository {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public boolean checkUsernameExist(String username, Integer id) {
+        boolean check = false;
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select *from accounts where username like ? ";
+            if (Objects.nonNull(id)){
+                sql += " and account_id != ? ";
+            }
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            if (Objects.nonNull(id)){
+                preparedStatement.setInt(2, id);
+            }
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                check = true;
+            }
+            JDBCUtils.close(connection,preparedStatement,rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
+    @Override
+    public boolean checkEmailExist(String email) {
+        boolean check = false;
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select *from accounts where email like ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,email);
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                check = true;
+            }
+            JDBCUtils.close(connection,preparedStatement,rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
+    @Override
+    public boolean checkIdExist(int id) {
+        boolean check = false;
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select * from accounts where account_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+            JDBCUtils.close(connection, preparedStatement, rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
     }
 }

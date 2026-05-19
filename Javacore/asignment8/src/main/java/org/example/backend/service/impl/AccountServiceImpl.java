@@ -30,4 +30,20 @@ public class AccountServiceImpl implements IAccountService {
     public boolean delete(int id) {
         return accountRepository.delete(id);
     }
+
+    @Override
+    public boolean checkEmailExist(String email) {
+        return accountRepository.checkEmailExist(email);
+    }
+
+    @Override
+    public boolean checkUsernameExist(String username, Integer id) {
+        return accountRepository.checkUsernameExist(username, id);
+    }
+
+    @Override
+    public boolean checkIdExist(int id) {
+        return accountRepository.checkIdExist(id);
+    }
+
 }

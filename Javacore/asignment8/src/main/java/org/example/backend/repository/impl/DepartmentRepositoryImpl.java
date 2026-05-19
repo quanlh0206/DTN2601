@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DepartmentRepositoryImpl implements IDepartmentRepository {
     @Override
@@ -83,5 +84,49 @@ public class DepartmentRepositoryImpl implements IDepartmentRepository {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public boolean checkExistName(String name, Integer id) {
+        boolean check = false;
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select *from departments where department_name like ? ";
+            if (Objects.nonNull(id)){
+                sql += " and department_id != ? ";
+            }
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,name);
+            if (Objects.nonNull(id)){
+                preparedStatement.setInt(2, id);
+            }
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                check = true;
+            }
+            JDBCUtils.close(connection,preparedStatement,rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
+    @Override
+    public boolean checkIdExist(int id) {
+        boolean check = false;
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select * from departments where department_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+            JDBCUtils.close(connection, preparedStatement, rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
     }
 }

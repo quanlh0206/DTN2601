@@ -10,4 +10,7 @@ public interface IAccountService {
     boolean insert(String username, String fullName, String email, int departmentId, int positionId);
     boolean update(int id, String newFullName);
     boolean delete (int id);
+    boolean checkUsernameExist(String username, Integer id);
+    boolean checkEmailExist(String email);
+    boolean checkIdExist(int id);
 }

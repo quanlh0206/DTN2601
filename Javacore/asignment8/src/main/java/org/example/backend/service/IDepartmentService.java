@@ -9,4 +9,6 @@ public interface IDepartmentService {
     boolean insert(String name);
     boolean update(int id, String name);
     boolean delete (int id);
+    boolean checkExistName(String name, Integer id);
+    boolean checkIdExist(int id);
 }

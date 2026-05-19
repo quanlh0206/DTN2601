@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PositionRepositoryImpl implements IpositionRepository {
     @Override
@@ -75,7 +76,7 @@ public class PositionRepositoryImpl implements IpositionRepository {
     public boolean delete(int id) {
         try {
             Connection connection = JDBCUtils.getConnection();
-            String sql = "delete from positions where position_name = ?";
+            String sql = "delete from positions where position_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             int c = preparedStatement.executeUpdate();
@@ -85,5 +86,49 @@ public class PositionRepositoryImpl implements IpositionRepository {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public boolean checkExistName(String name, Integer id) {
+        boolean check = false;
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select *from positions where position_name like ? ";
+            if (Objects.nonNull(id)){
+                sql += " and position_id != ? ";
+            }
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,name);
+            if (Objects.nonNull(id)){
+                preparedStatement.setInt(2, id);
+            }
+            ResultSet rs = preparedStatement.executeQuery();
+            if(rs.next()){
+                check = true;
+            }
+            JDBCUtils.close(connection,preparedStatement,rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
+    @Override
+    public boolean checkIdExist(int id) {
+        boolean check = false;
+        try {
+            Connection connection = JDBCUtils.getConnection();
+            String sql = "select * from positions where position_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                check = true;
+            }
+            JDBCUtils.close(connection, preparedStatement, rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return check;
     }
 }

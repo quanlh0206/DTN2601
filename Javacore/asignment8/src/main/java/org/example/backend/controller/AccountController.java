@@ -24,4 +24,16 @@ public class AccountController {
     public boolean delete(int id) {
         return accountService.delete(id);
     }
+
+    public boolean checkEmailExist(String email) {
+        return accountService.checkEmailExist(email);
+    }
+
+    public boolean checkUsernameExist(String username, Integer id) {
+        return accountService.checkUsernameExist(username, id);
+    }
+
+    public boolean checkExistName(String name, Integer id) {
+        return accountService.checkUsernameExist(name, id);
+    }
 }

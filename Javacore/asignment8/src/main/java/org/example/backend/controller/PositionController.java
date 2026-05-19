@@ -21,4 +21,11 @@ public class PositionController {
     public boolean delete(int id){
         return positionService.delete(id);
     }
+    public boolean checkExistName(String name, Integer id){
+        return positionService.checkExistName(name, id);
+    }
+
+    public boolean checkIdExist(int id){
+        return positionService.checkIdExist(id);
+    }
 }

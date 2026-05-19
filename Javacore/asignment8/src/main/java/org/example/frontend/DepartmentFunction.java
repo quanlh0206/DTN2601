@@ -5,6 +5,7 @@ import org.example.entity.Department;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class DepartmentFunction {
@@ -61,9 +62,21 @@ public class DepartmentFunction {
     }
 
     public void deleteDepartment() {
-        System.out.println("Nhập ID phòng ban cần xóa: ");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id;
+        while (true) {
+            System.out.println("Nhập ID phòng ban cần xóa: ");
+            id = sc.nextInt();
+            sc.nextLine();
+            if (id <= 0) {
+                System.out.println("ID phai lon hon 0. Vui long nhap lai");
+                continue;
+            }
+            if (!departmentController.checkIdExist(id)) {
+                System.out.println("ID không tồn tại");
+                continue;
+            }
+            break;
+        }
         boolean check = departmentController.delete(id);
         if (check) {
             System.out.println("Xóa thành công");
@@ -73,11 +86,36 @@ public class DepartmentFunction {
     }
 
     public void updateDepartment() {
-        System.out.println("Nhập tên ID phòng ban cần sửa: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Nhập tên phòng ban muốn thay đổi: ");
-        String name = sc.nextLine();
+        int id;
+        String name;
+        while (true) {
+            System.out.println("Nhập tên ID phòng ban cần sửa: ");
+            id = sc.nextInt();
+            sc.nextLine();
+            if (id <= 0) {
+                System.out.println("ID phai lon hon 0. Vui long nhap lai");
+                continue;
+            }
+            if (!departmentController.checkIdExist(id)) {
+                System.out.println("ID không tồn tại");
+                continue;
+            }
+
+            break;
+        }
+        while (true) {
+            System.out.println("Nhập tên phòng ban muốn thay đổi: ");
+            name = sc.nextLine();
+            if(Objects.isNull(name) || name.trim().isEmpty()){
+                System.out.println("Kh dc de trong. Nhap lai ten");
+                continue;
+            }
+            if(departmentController.checkExistName(name, id)) {
+                System.out.println("ten da ton tai, nhap lai ten khac");
+                continue;
+            }
+                break;
+        }
         boolean check = departmentController.update(id, name);
         if (check) {
             System.out.println("Update thành công");
@@ -87,8 +125,20 @@ public class DepartmentFunction {
     }
 
     public void insertDepartment() {
-        System.out.println("Nhập tên phòng ban: ");
-        String name = sc.nextLine();
+        String name;
+        while (true) {
+            System.out.println("Nhập tên phòng ban: ");
+            name = sc.nextLine();
+            if(Objects.isNull(name) || name.trim().isEmpty()){
+                System.out.println("Kh dc de trong. Nhap lai ten");
+                continue;
+            }
+            if(departmentController.checkExistName(name, null)) {
+                System.out.println("ten da ton tai, nhap lai ten khac");
+                continue;
+            }
+                break;
+        }
         boolean check = departmentController.insert(name);
         if (check) {
             System.out.println("Thêm mới thành công");

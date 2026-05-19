@@ -2,9 +2,11 @@ package org.example.frontend;
 
 import org.example.backend.controller.PositionController;
 import org.example.entity.Position;
+import org.example.enums.PositionName;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class PositionFunction {
@@ -65,9 +67,21 @@ public class PositionFunction {
     }
 
     public void deletePosition() {
-        System.out.println("Nhập ID position cần xóa: ");
-        int id = sc.nextInt();
-        sc.nextLine();
+        int id;
+        while (true) {
+            System.out.println("Nhập ID position cần xóa: ");
+            id = sc.nextInt();
+            sc.nextLine();
+            if (id <= 0) {
+                System.out.println("ID phải lớn hơn 0");
+                continue;
+            }
+            if (!positionController.checkIdExist(id)) {
+                System.out.println("ID không tồn tại");
+                continue;
+            }
+            break;
+        }
         boolean check = positionController.delete(id);
         if (check) {
             System.out.println("Xóa thành công");
@@ -77,11 +91,42 @@ public class PositionFunction {
     }
 
     public void updatePosition() {
-        System.out.println("Nhập ID position cần sửa: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Nhập tên position mới: ");
-        String name = sc.nextLine();
+        int id;
+        String name;
+        while (true) {
+            System.out.println("Nhập ID position cần sửa: ");
+            id = sc.nextInt();
+            sc.nextLine();
+            if (id <= 0) {
+                System.out.println("ID phải lớn hơn 0");
+                continue;
+            }
+            if (!positionController.checkIdExist(id)) {
+                System.out.println("ID không tồn tại");
+                continue;
+            }
+            break;
+        }
+        while (true) {
+            System.out.println("Nhập tên position mới: ");
+            name = sc.nextLine().trim().toUpperCase();
+            if (name.isEmpty()) {
+                System.out.println("Không được để trống");
+                continue;
+            }
+            try {
+                PositionName.valueOf(name);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Position không hợp lệ");
+                System.out.println("Chỉ được nhập: DEV, TEST, SCRUM_MASTER, PM");
+                continue;
+            }
+            if (positionController.checkExistName(name, id)) {
+                System.out.println("Tên đã tồn tại");
+                continue;
+            }
+            break;
+        }
         boolean check = positionController.update(id, name);
         if (check) {
             System.out.println("Update thành công");
@@ -91,8 +136,27 @@ public class PositionFunction {
     }
 
     public void insertPosition() {
-        System.out.println("Nhập tên position: ");
-        String name = sc.nextLine();
+        String name;
+        while (true) {
+            System.out.println("Nhập tên position: ");
+            name = sc.nextLine().trim().toUpperCase();
+            if (name.isEmpty()) {
+                System.out.println("Không được để trống");
+                continue;
+            }
+            try {
+                PositionName.valueOf(name);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Position không hợp lệ");
+                System.out.println("Chỉ được nhập: DEV, TEST, SCRUM_MASTER, PM");
+                continue;
+            }
+            if (positionController.checkExistName(name, null)) {
+                System.out.println("Tên đã tồn tại");
+                continue;
+            }
+            break;
+        }
         boolean check = positionController.insert(name);
         if (check) {
             System.out.println("Thêm mới thành công");

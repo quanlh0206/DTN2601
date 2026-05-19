@@ -22,4 +22,12 @@ public class DepartmentController {
         return departmentService.delete(id);
     }
 
+    public boolean checkExistName(String name, Integer id){
+        return departmentService.checkExistName(name, id);
+    }
+
+    public boolean checkIdExist(int id){
+        return departmentService.checkIdExist(id);
+    }
+
 }
